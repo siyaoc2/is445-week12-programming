@@ -1,0 +1,34 @@
+[meta title:"Week12 Is445" description:"Short description of your project" /]
+
+[Header
+  fullWidth:true
+  title:"Week12 Is445"
+  subtitle:"Here is US Historical Temperture Dataset"
+  author:"Siyao Cheng"
+  authorLink:"https://github.com/siyaoc2/Week12-is445"
+  date:"Apr 18, 2022"
+  background:"#222222"
+  color:"#ffffff"
+   /]
+
+[var name:"x" value:0 /]
+
+[var name:"myVar" value:false /]
+
+[Boolean value:myVar /]
+
+Checkbox [Display value:`myVar ? "is checked." : "isn't checked."  `/]
+
+[data name:"temperture" source:"temperture.csv" /]
+
+[Table data:temperture /]
+
+[Aside]
+[IdyllVegaLite data:temperture spec:`{  mark: "bar",  encoding: {    x: {      field: "TIMESTEP",      type: "temporal",      axis: {title: "year", format:"%Y"}    },    y: {      field: "MEAN(C)",      type: "quantitative",      axis: {title: "temp"}    }  }}` /]
+[/Aside]
+
+Source:[a href:"https://www.sciencebase.gov/catalog/item/511e9047e4b071e86a19a534"] USGS[/a].
+
+## Summary/Report
+
+I found this source via USGS with the Maurer, et al. (2007) bias-corrected. This source also contained the temperature data for some other geographic areas. This dataset I chose measures how the mean temperature changed over time in the Southern Rockies. Since this dataset was too large and varied to be coherent, I decided to only target the historical data on every January 16th from 1950 to 1965 by using a bar chart, as shown on the right-hand side. In order to accomplish this, I have to delete all irrelevant information. The bar chart displayed now is easy to track the trend. 
